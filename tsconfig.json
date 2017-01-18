@@ -6,10 +6,10 @@
     "target": "es5",
     "jsx": "react",
     "noLib": false,
-    "allowJs": true
+    "types": ["react", "react-dom"]
   },
-  "files": [
-    "greeter.ts"
+  "include": [
+    "src/**/*"
   ],
   "exclude": [
     "node_modules"

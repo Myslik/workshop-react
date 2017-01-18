@@ -1,11 +1,11 @@
 module.exports = {
-  entry: './greeter.ts',
+  entry: './src/index.tsx',
   output: {
     filename: 'bundle.js'
   },
   devtool: "source-map",
   resolve: {
-    extensions: ["", ".webpack.js", ".web.js", ".ts", ".js"]
+    extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
   },
   module: {
     loaders: [
@@ -21,5 +21,9 @@ module.exports = {
         loader: "source-map-loader"
       }
     ]
+  },
+  externals: {
+    "react": "React",
+    "react-dom": "ReactDOM"
   }
 };

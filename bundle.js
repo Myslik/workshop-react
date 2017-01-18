@@ -42,14 +42,25 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(2);
+	ReactDOM.render(React.createElement("div", null, "Hello world!"), document.getElementById("example"));
+
+
+/***/ },
+/* 1 */
 /***/ function(module, exports) {
 
-	function greeter(person) {
-	    return "Hello, " + person;
-	}
-	var user = "Jane User";
-	document.body.innerHTML = greeter(user);
+	module.exports = React;
 
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	module.exports = ReactDOM;
 
 /***/ }
 /******/ ]);
