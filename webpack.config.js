@@ -24,6 +24,7 @@ module.exports = {
   },
   externals: {
     "react": "React",
-    "react-dom": "ReactDOM"
+    "react-dom": "ReactDOM",
+    "es6-promise": "Promise"
   }
 };
