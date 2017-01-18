@@ -1,0 +1,6 @@
+# Chrome Profile
+.vscode/chrome
+
+# Dependency directories
+node_modules
+jspm_packages

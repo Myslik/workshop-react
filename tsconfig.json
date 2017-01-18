@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "./",
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "noLib": false,
+    "allowJs": true
+  },
+  "files": [
+    "greeter.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

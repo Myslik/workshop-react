@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [{
+            "name": "Launch Chrome against localhost",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:8080",
+            "userDataDir": "${workspaceRoot}/.vscode/chrome",
+            "webRoot": "${workspaceRoot}",
+            "internalConsoleOptions": "openOnFirstSessionStart",
+            "sourceMaps": true,
+            "preLaunchTask": "development"
+        }
+    ]
+}

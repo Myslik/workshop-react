@@ -1,0 +1,18 @@
+{
+  "description": "workshop-typescript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Myslik/workshop-typescript.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "server": "node_modules/.bin/webpack-dev-server"
+  },
+  "devDependencies": {
+    "source-map-loader": "^0.1.6",
+    "ts-loader": "^1.3.3",
+    "typescript": "^2.1.5",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
