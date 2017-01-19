@@ -5,7 +5,7 @@ export interface IRow {
 
 export interface IColumn {
     key: string;
-    width: number;
+    width?: number;
 }
 
 export interface IAdapter {
