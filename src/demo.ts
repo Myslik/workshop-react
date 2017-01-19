@@ -4,7 +4,7 @@ export class DemoAdapter implements IAdapter {
     fetchColumns(): Promise<IColumn[]> {
         return new Promise<IColumn[]>((resolve, reject) => {
             resolve([
-                { key: "id", width: 70 },
+                { key: "id" },
                 { key: "name", width: 150 }
             ]);
         });

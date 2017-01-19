@@ -14,6 +14,7 @@ export class Header extends React.Component<IHeaderProps, void> {
                 this.props.columns.map((column) => {
                     return (
                         <HeaderCell 
+                            key={column.key}
                             title={column.key}
                             width={column.width} />
                     );
