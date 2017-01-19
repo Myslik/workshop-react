@@ -3,7 +3,7 @@ module.exports = {
   output: {
     filename: 'bundle.js'
   },
-  devtool: "source-map",
+  devtool: "inline-source-map",
   resolve: {
     extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
   },
