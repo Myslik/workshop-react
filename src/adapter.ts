@@ -8,7 +8,16 @@ export interface IColumn {
     width?: number;
 }
 
+export interface ISorting {
+    key: string;
+    asc?: boolean;
+}
+
+export interface IQuery {
+    sorting?: ISorting;
+}
+
 export interface IAdapter {
     fetchColumns(): Promise<IColumn[]>;
-    fetchRows(): Promise<IRow[]>;
+    fetchRows(query?: IQuery): Promise<IRow[]>;
 }
