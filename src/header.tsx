@@ -7,6 +7,7 @@ export interface IHeaderProps {
     columns: IColumn[];
     selection: string[];
     onSelect: (all: boolean) => void;
+    onSort: (key: string) => void;
 }
 
 export class Header extends React.Component<IHeaderProps, void> {
@@ -26,7 +27,8 @@ export class Header extends React.Component<IHeaderProps, void> {
                             <HeaderCell
                                 key={column.key}
                                 title={column.key}
-                                width={column.width} />
+                                width={column.width}
+                                onClick={() => { this.props.onSort(column.key); }} />
                         );
                     })
                 }

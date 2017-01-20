@@ -14,6 +14,7 @@
     "@types/es6-promise": "0.0.32",
     "@types/jest": "^16.0.4",
     "@types/react": "^15.0.0",
+    "@types/react-addons-test-utils": "^0.14.16",
     "@types/react-dom": "^0.14.20",
     "jest": "^18.1.0",
     "react-addons-test-utils": "^15.4.2",

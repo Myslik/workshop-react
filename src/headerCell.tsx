@@ -3,6 +3,7 @@ import * as React from "react";
 export interface IHeaderCellProps {
     title: string;
     width?: number;
+    onClick: () => void;
 }
 
 export class HeaderCell extends React.Component<IHeaderCellProps, void> {
@@ -15,7 +16,10 @@ export class HeaderCell extends React.Component<IHeaderCellProps, void> {
             width: this.props.width + "px"
         };
         return (
-            <div style={style} className="react-grid-header-cell">
+            <div 
+                onClick={() => { this.props.onClick() }} 
+                style={style} 
+                className="react-grid-header-cell">
                 {this.props.title}
             </div>
         );

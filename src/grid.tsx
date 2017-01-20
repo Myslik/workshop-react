@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IRow, IColumn, IAdapter } from "./adapter";
+import { IRow, IColumn, IAdapter, IQuery, ISorting } from "./adapter";
 import { Header } from "./header";
 import { Body } from "./body";
 
@@ -11,6 +11,7 @@ export interface IGridState {
     columns: IColumn[];
     rows: IRow[];
     selection: string[];
+    sorting?: ISorting;
 }
 
 export class Grid extends React.Component<IGridProps, IGridState> {
@@ -24,6 +25,7 @@ export class Grid extends React.Component<IGridProps, IGridState> {
 
         this.handleSelect = this.handleSelect.bind(this);
         this.handleSelectAll = this.handleSelectAll.bind(this);
+        this.handleSort = this.handleSort.bind(this);
     }
 
     fetchColumns() {
@@ -35,13 +37,38 @@ export class Grid extends React.Component<IGridProps, IGridState> {
         });
     }
 
+    get query(): IQuery {
+        return {
+            sorting: this.state.sorting
+        };
+    }
+
     fetchRows() {
-        this.props.adapter.fetchRows().then(rows => {
+        this.props.adapter.fetchRows(this.query).then(rows => {
             this.setState((prevState, props) => {
                 prevState.rows = rows;
                 return prevState;
             });
         });
+    }
+
+    handleSort(key: string) {
+        this.setState((prevState, props) => {
+            if (!prevState.sorting || prevState.sorting.key != key) {
+                prevState.sorting = {
+                    key: key,
+                    asc: true
+                };
+            } else {
+                if (prevState.sorting.asc === true) {
+                    prevState.sorting.asc = false;
+                } else {
+                    prevState.sorting = undefined;
+                }
+            }
+            prevState.rows = [];
+            return prevState;
+        }, () => { this.fetchRows() });
     }
 
     componentDidMount() {
@@ -87,7 +114,8 @@ export class Grid extends React.Component<IGridProps, IGridState> {
                 <Header 
                     columns={this.state.columns}
                     selection={this.state.selection}
-                    onSelect={this.handleSelectAll} />
+                    onSelect={this.handleSelectAll}
+                    onSort={this.handleSort} />
                 <Body 
                     columns={this.state.columns}
                     rows={this.state.rows}
