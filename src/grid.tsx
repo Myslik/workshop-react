@@ -23,6 +23,7 @@ export class Grid extends React.Component<IGridProps, IGridState> {
         };
 
         this.handleSelect = this.handleSelect.bind(this);
+        this.handleSelectAll = this.handleSelectAll.bind(this);
     }
 
     fetchColumns() {
@@ -59,10 +60,34 @@ export class Grid extends React.Component<IGridProps, IGridState> {
         });
     }
 
+    handleSelectAll(all: boolean) {
+        this.setState((prevState, props) => {
+            if (all) {
+                prevState.selection = prevState.rows.map(r => r.id);
+            } else {
+                prevState.selection = [];
+            }
+            return prevState;
+        });
+    }
+
+    get width(): number {
+        return this.state.columns
+            .map(c => c.width)
+            .reduce((p, c) => { return p + c }, 24);
+    }
+
     render() {
+        var style = {
+            width: this.width + "px"
+        };
+
         return (
-            <div className="react-grid">
-                <Header columns={this.state.columns} />
+            <div style={style} className="react-grid">
+                <Header 
+                    columns={this.state.columns}
+                    selection={this.state.selection}
+                    onSelect={this.handleSelectAll} />
                 <Body 
                     columns={this.state.columns}
                     rows={this.state.rows}
