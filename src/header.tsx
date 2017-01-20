@@ -18,7 +18,7 @@ export class Header extends React.Component<IHeaderProps, void> {
     render() {
         return (
             <div className="react-grid-header">
-                <CheckboxHeaderCell
+                <CheckboxHeaderCell 
                     checked={this.checked}
                     onCheck={(checked) => { this.props.onSelect(checked) }} />
                 {

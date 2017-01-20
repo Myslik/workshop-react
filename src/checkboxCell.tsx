@@ -8,10 +8,10 @@ export interface ICheckboxCellProps {
 export class CheckboxCell extends React.Component<ICheckboxCellProps, void> {
     static defaultProps = {
         checked: false
-    }
+    };
 
     render() {
-        var style = {
+        const style = {
             padding: "1px",
             width: "24px"
         };

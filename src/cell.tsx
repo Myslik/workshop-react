@@ -8,10 +8,10 @@ export interface ICellProps {
 export class Cell extends React.Component<ICellProps, void> {
     static defaultProps = {
         width: 100
-    }
+    };
 
     render() {
-        var style = {
+        const style = {
             width: this.props.width + "px"
         };
 

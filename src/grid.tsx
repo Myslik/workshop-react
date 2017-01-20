@@ -46,6 +46,7 @@ export class Grid extends React.Component<IGridProps, IGridState> {
     fetchRows() {
         this.props.adapter.fetchRows(this.query).then(rows => {
             this.setState((prevState, props) => {
+                prevState.selection = [];
                 prevState.rows = rows;
                 return prevState;
             });
