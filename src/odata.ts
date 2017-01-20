@@ -15,9 +15,9 @@ export class ODataAdapter implements IAdapter {
 
     buildUri(query?: IQuery): string {
         if (query) {
-            var buffer: string[] = [];
+            let buffer: string[] = [];
             if (query.sorting) {
-                var suffix = query.sorting.asc === false ? " desc" : " asc";
+                const suffix = query.sorting.asc === false ? " desc" : " asc";
                 buffer.push("$orderby=" + query.sorting.key + suffix);
             }
             return this.url + "?" + buffer.join("&");
@@ -29,11 +29,11 @@ export class ODataAdapter implements IAdapter {
         return response.value.map(r => {
             r["id"] = r[this.key];
             return r as IRow;
-        })
+        });
     }
 
     fetchRows(query?: IQuery): Promise<IRow[]> {
-        var uri = this.buildUri(query);
+        const uri = this.buildUri(query);
         return new Promise<IRow[]>((resolve, reject) => {
             var request = new XMLHttpRequest();
             request.open("GET", uri, true);

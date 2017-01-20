@@ -55,7 +55,7 @@ export class Grid extends React.Component<IGridProps, IGridState> {
 
     handleSort(key: string) {
         this.setState((prevState, props) => {
-            if (!prevState.sorting || prevState.sorting.key != key) {
+            if (!prevState.sorting || prevState.sorting.key !== key) {
                 prevState.sorting = {
                     key: key,
                     asc: true
@@ -69,7 +69,7 @@ export class Grid extends React.Component<IGridProps, IGridState> {
             }
             prevState.rows = [];
             return prevState;
-        }, () => { this.fetchRows() });
+        }, () => { this.fetchRows(); });
     }
 
     componentDidMount() {
@@ -81,7 +81,7 @@ export class Grid extends React.Component<IGridProps, IGridState> {
             if (checked) {
                 prevState.selection.push(rowId);
             } else {
-                var index = prevState.selection.indexOf(rowId);
+                const index = prevState.selection.indexOf(rowId);
                 prevState.selection.splice(index, 1);
             }
             return prevState;
@@ -106,18 +106,19 @@ export class Grid extends React.Component<IGridProps, IGridState> {
     }
 
     render() {
-        var style = {
+        const style = {
             width: this.width + "px"
         };
 
         return (
             <div style={style} className="react-grid">
-                <Header 
+                <Header
                     columns={this.state.columns}
                     selection={this.state.selection}
+                    sorting={this.state.sorting}
                     onSelect={this.handleSelectAll}
                     onSort={this.handleSort} />
-                <Body 
+                <Body
                     columns={this.state.columns}
                     rows={this.state.rows}
                     selection={this.state.selection}
